@@ -31,9 +31,7 @@ type EChartsOption = echarts.ComposeOption<
 const props = defineProps({
   chartId: {
     type: String,
-    default: () => {
-      return "line-chart";
-    },
+    default: () => "line-chart"
   },
   showSelect: {
     type: Boolean,
@@ -41,9 +39,7 @@ const props = defineProps({
   },
   className: {
     type: String,
-    default: () => {
-      return "line-chart";
-    },
+    default: () => "line-chart"
   },
   height: {
     type: String,
@@ -55,24 +51,9 @@ const props = defineProps({
   },
   options: {
     type: Object,
-    default: () => {
-      return {}
-    }
+    default: () => ({})
   }
-  // xAxisData: {
-  //   type: Array,
-  //   default: () => {
-  //     return [];
-  //   },
-  // },
-  // seriesData: {
-  //   type: Array,
-  //   default: () => {
-  //     return [];
-  //   },
-  // },
 })
-// const { xAxisData, seriesData } = toRefs(props);
 const { options } = toRefs(props);
 // 配置信息
 const setOptions = computed((): EChartsOption => {
@@ -81,22 +62,23 @@ const setOptions = computed((): EChartsOption => {
 });
 // 创建图表
 function initChart() {
-  let chartDom = document.getElementById(props.chartId)!;
-  let myChart = echarts.init(chartDom);
-  myChart.setOption(setOptions.value);
-  window.onresize = function () {
-    //自适应大小
-    myChart.resize();
-  };
+  let chartDom = document.getElementById(props.chartId);
+  if (chartDom) {
+    let myChart = echarts.init(chartDom);
+    myChart.setOption(setOptions.value);
+    window.onresize = function () {
+      //自适应大小
+      myChart.resize();
+    };
+  }
 }
 onMounted(() => {
   initChart();
 });
 // 监听传值，刷新图表
-// watch([seriesData, xAxisData], () => {
-watch([options], () => {
+watch(options, () => {
   initChart();
-});
+}, { deep: true });
 </script>
 
 <style>
