@@ -35,7 +35,6 @@ const addTodo = (val: any): void => {
         completed: false
       })
       value.value = ''
-      console.log(todos.value)
 }
 defineProps({
   titleInfo: {
