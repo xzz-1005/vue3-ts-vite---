@@ -12,6 +12,7 @@
         <option value="2">2</option>
       </select>
     </div>
+    
   </div>
 </template>
 

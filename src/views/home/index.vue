@@ -1,5 +1,16 @@
 <template>
   <!-- <EchartsDemo :xAxisData="chartData.xAxisData" :seriesData="chartData.seriesData" height="500px"></EchartsDemo> -->
+  <div>
+  <el-row class="mb-4">
+    <el-button>Default</el-button>
+    <el-button type="primary">Primary</el-button>
+    <el-button type="success">Success</el-button>
+    <el-button type="info">Info</el-button>
+    <el-button type="warning">Warning</el-button>
+    <el-button type="danger">Danger</el-button>
+    <el-button>中文</el-button>
+  </el-row>
+</div>
   <EchartsDemo chartId="left-echart" :options="chartData" height="500px"></EchartsDemo>
   <EchartsDemo chartId="right-echart" :showSelect="false" :options="chartDataRight" height="300px"></EchartsDemo>
   <ComSetup :title-info="{ value: '笨蛋', color: 'red' }"></ComSetup>
