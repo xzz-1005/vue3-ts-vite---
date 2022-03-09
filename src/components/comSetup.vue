@@ -9,7 +9,7 @@
 </template>
 
 <script lang='ts' setup>
-import { ref, PropType, computed, defineProps } from 'vue'
+import { ref, PropType, computed } from 'vue'
 interface Todo {
   id: number,
   name: string,
