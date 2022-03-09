@@ -18,7 +18,7 @@
 
 <script lang="ts" setup>
 import { toRefs, watch, onMounted, computed } from "vue";
-import * as echarts from "echarts";
+import * as echarts from "echarts/core";
 import { GridComponent, GridComponentOption } from 'echarts/components';
 import { LineChart, LineSeriesOption } from 'echarts/charts';
 import { UniversalTransition } from 'echarts/features';
